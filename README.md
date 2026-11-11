@@ -47,7 +47,7 @@ auf die zulässige Zeitspanne beschnitten), nicht für die Originalinstanzen. Ge
 
 ## Befunde (gemessen, keine Behauptungen)
 
-Alle Zeilen unten stehen so in `data/` (Quelle: Rohausgaben der Vormessung); wie jede Zahl geprüft ist, zeigt die Tabelle „Zahl → Test“ weiter unten.
+Alle Zeilen unten stehen so in `data/` (Quelle: Rohausgaben der „Vormessung“, einer vor dem Bau gerechneten Messreihe; ihre Rohausgaben und Skripte sind nicht veröffentlicht); wie jede Zahl geprüft ist, zeigt die Tabelle „Zahl → Test“ weiter unten.
 
 **Ein Pricing-Aufruf, zufällig verteilte Kunden** (30 Kunden, ng-Gedächtnis 5, Dualpreise der ersten Runde, 12 Instanzen je Zelle mit den Zufalls-Seeds 0 bis 11; Labels = erzeugte Labels; Mittel über die 12 Instanzen):
 
