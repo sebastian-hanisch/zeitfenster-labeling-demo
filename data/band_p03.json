@@ -1,0 +1,160 @@
+{
+ "quelle": "vormessung/run_p03.log (erzeugt von v_p03_breite_warten.py)",
+ "bedingungen": {
+  "kunden": 30,
+  "ng_gedaechtnis_k": 5,
+  "kapazitaet": 70,
+  "horizont": 300,
+  "bedienzeit": 10,
+  "instanzen_je_zelle": 12,
+  "zufalls_seeds": "0 bis 11",
+  "dualpreise": "erste Runde: 2 mal Entfernung zum Depot",
+  "messgroesse": "erzeugte Labels in einem Pricing-Aufruf"
+ },
+ "zeilen": [
+  {
+   "typ": "zufällig",
+   "breite": 20,
+   "median": 1413,
+   "mittel": 1384.3,
+   "max": 1831,
+   "dominiert_mittel_prozent": 71.4,
+   "wartet_mittel_prozent": 71.4,
+   "wartezeit_je_wartendem_label_mittel": 41.2,
+   "fenster_aus_je_label_mittel": 5.6,
+   "quelle": "run_p03.log, Zeile 6"
+  },
+  {
+   "typ": "zufällig",
+   "breite": 40,
+   "median": 2638,
+   "mittel": 2610.8,
+   "max": 3589,
+   "dominiert_mittel_prozent": 76.5,
+   "wartet_mittel_prozent": 51.7,
+   "wartezeit_je_wartendem_label_mittel": 38.6,
+   "fenster_aus_je_label_mittel": 4.02,
+   "quelle": "run_p03.log, Zeile 7"
+  },
+  {
+   "typ": "zufällig",
+   "breite": 70,
+   "median": 5425,
+   "mittel": 5658.8,
+   "max": 7585,
+   "dominiert_mittel_prozent": 80.5,
+   "wartet_mittel_prozent": 32.0,
+   "wartezeit_je_wartendem_label_mittel": 34.1,
+   "fenster_aus_je_label_mittel": 2.83,
+   "quelle": "run_p03.log, Zeile 8"
+  },
+  {
+   "typ": "zufällig",
+   "breite": 100,
+   "median": 10911,
+   "mittel": 10555.6,
+   "max": 13654,
+   "dominiert_mittel_prozent": 83.1,
+   "wartet_mittel_prozent": 19.2,
+   "wartezeit_je_wartendem_label_mittel": 30.4,
+   "fenster_aus_je_label_mittel": 2.14,
+   "quelle": "run_p03.log, Zeile 9"
+  },
+  {
+   "typ": "zufällig",
+   "breite": 150,
+   "median": 22870,
+   "mittel": 23600.9,
+   "max": 32602,
+   "dominiert_mittel_prozent": 86.4,
+   "wartet_mittel_prozent": 7.5,
+   "wartezeit_je_wartendem_label_mittel": 25.5,
+   "fenster_aus_je_label_mittel": 1.37,
+   "quelle": "run_p03.log, Zeile 10"
+  },
+  {
+   "typ": "zufällig",
+   "breite": 200,
+   "median": 42510,
+   "mittel": 40760.4,
+   "max": 58879,
+   "dominiert_mittel_prozent": 88.5,
+   "wartet_mittel_prozent": 2.8,
+   "wartezeit_je_wartendem_label_mittel": 21.5,
+   "fenster_aus_je_label_mittel": 0.91,
+   "quelle": "run_p03.log, Zeile 11"
+  },
+  {
+   "typ": "gruppiert",
+   "breite": 20,
+   "median": 2870,
+   "mittel": 3123.0,
+   "max": 5359,
+   "dominiert_mittel_prozent": 81.1,
+   "wartet_mittel_prozent": 75.6,
+   "wartezeit_je_wartendem_label_mittel": 53.1,
+   "fenster_aus_je_label_mittel": 2.87,
+   "quelle": "run_p03.log, Zeile 16"
+  },
+  {
+   "typ": "gruppiert",
+   "breite": 40,
+   "median": 5274,
+   "mittel": 6141.3,
+   "max": 13559,
+   "dominiert_mittel_prozent": 84.1,
+   "wartet_mittel_prozent": 61.9,
+   "wartezeit_je_wartendem_label_mittel": 51.1,
+   "fenster_aus_je_label_mittel": 2.05,
+   "quelle": "run_p03.log, Zeile 17"
+  },
+  {
+   "typ": "gruppiert",
+   "breite": 70,
+   "median": 11377,
+   "mittel": 13592.6,
+   "max": 33327,
+   "dominiert_mittel_prozent": 86.1,
+   "wartet_mittel_prozent": 45.1,
+   "wartezeit_je_wartendem_label_mittel": 46.9,
+   "fenster_aus_je_label_mittel": 1.36,
+   "quelle": "run_p03.log, Zeile 18"
+  },
+  {
+   "typ": "gruppiert",
+   "breite": 100,
+   "median": 20414,
+   "mittel": 23505.8,
+   "max": 61378,
+   "dominiert_mittel_prozent": 87.3,
+   "wartet_mittel_prozent": 32.7,
+   "wartezeit_je_wartendem_label_mittel": 42.5,
+   "fenster_aus_je_label_mittel": 1.0,
+   "quelle": "run_p03.log, Zeile 19"
+  },
+  {
+   "typ": "gruppiert",
+   "breite": 150,
+   "median": 42178,
+   "mittel": 43328.6,
+   "max": 92845,
+   "dominiert_mittel_prozent": 89.0,
+   "wartet_mittel_prozent": 18.2,
+   "wartezeit_je_wartendem_label_mittel": 35.0,
+   "fenster_aus_je_label_mittel": 0.62,
+   "quelle": "run_p03.log, Zeile 20"
+  },
+  {
+   "typ": "gruppiert",
+   "breite": 200,
+   "median": 68216,
+   "mittel": 68357.8,
+   "max": 121135,
+   "dominiert_mittel_prozent": 90.2,
+   "wartet_mittel_prozent": 9.2,
+   "wartezeit_je_wartendem_label_mittel": 28.1,
+   "fenster_aus_je_label_mittel": 0.38,
+   "quelle": "run_p03.log, Zeile 21"
+  }
+ ]
+}
