@@ -1,6 +1,6 @@
 # Zeitfenster und Warten im Label-Setting – Streamlit-Demo
 
-<!-- Live-Link nach dem Deploy direkt hierher setzen (Leerzeile davor und danach): **[→ Demo live ausprobieren](https://sebastianhanisch-zeitfenster-labeling-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-zeitfenster-labeling-demo.streamlit.app/)**
 
 Baustein der Linie **„Ressourcenwege und Spaltenerzeugung“** in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“.
 Vorausgesetzt werden der Ressourcenweg mit einer Zeitgrenze ([weg-mit-grenzen-demo](https://github.com/sebastian-hanisch/weg-mit-grenzen-demo)) und die Dominanz von Labels
