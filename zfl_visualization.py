@@ -159,7 +159,7 @@ def build_band(rows_by_type, live=None):
 
 
 def build_v1(table):
-    """Ganze Spaltenerzeugung: Median der Labels je Breite, eine Linie je ng-Gedächtnis k (30 = elementar; bei Breite 200 6 von 6 abgebrochen)."""
+    """Ganze Spaltengenerierung: Median der Labels je Breite, eine Linie je ng-Gedächtnis k (30 = elementar; bei Breite 200 6 von 6 abgebrochen)."""
     fig = go.Figure()
     for k in C.V1_KS:
         pts = [(r["breite"], r["median_labels"]) for r in table if r["k"] == k and r["median_labels"] is not None]
@@ -168,7 +168,7 @@ def build_v1(table):
                                  hovertemplate=f"{name}, Breite %{{x}}: Median %{{y}} Labels<extra></extra>"))
     fig.update_xaxes(title_text="Fensterbreite", tickvals=list(C.V1_WIDTHS))
     values = [r["median_labels"] for r in table if r["median_labels"] is not None]
-    fig.update_yaxes(title_text="Labels der ganzen Spaltenerzeugung (logarithmisch)", type="log", range=_log_range(values))
+    fig.update_yaxes(title_text="Labels der ganzen Spaltengenerierung (logarithmisch)", type="log", range=_log_range(values))
     return _base(fig, height=380)
 
 

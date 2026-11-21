@@ -2,11 +2,11 @@
 
 **[→ Demo live ausprobieren](https://sebastianhanisch-zeitfenster-labeling-demo.streamlit.app/)**
 
-Baustein der Linie **„Ressourcenwege und Spaltenerzeugung“** in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“.
+Baustein der Linie **„Ressourcenwege und Spaltengenerierung“** in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“.
 Vorausgesetzt werden der Ressourcenweg mit einer Zeitgrenze ([weg-mit-grenzen-demo](https://github.com/sebastian-hanisch/weg-mit-grenzen-demo)) und die Dominanz von Labels
 ([dominanz-labels-demo](https://github.com/sebastian-hanisch/dominanz-labels-demo)). Hier bekommt jeder Kunde ein **Zeitfenster** [e, l], und die Demo fragt, was das mit den Labels macht.
 
-In der Spaltenerzeugung für Tourenprobleme sucht das **Pricing** eine Route mit möglichst kleinen **reduzierten Kosten**: Fahrstrecke minus die **Dualpreise**, die das übergeordnete
+In der Spaltengenerierung für Tourenprobleme sucht das **Pricing** eine Route mit möglichst kleinen **reduzierten Kosten**: Fahrstrecke minus die **Dualpreise**, die das übergeordnete
 Planungsproblem (der Master) für das Bedienen jedes Kunden bietet. Das Verfahren dafür heißt **Label-Setting**: Es verlängert **Labels** (Teilwege mit Zeit, Kosten, Last und einem Gedächtnis
 der besuchten Kunden) in der Reihenfolge ihrer Zeit und streicht überflüssige Labels durch **Dominanz**. Eine Anwendung mit Ressourcen für Dienstspanne, Lenkzeit und Ruhezeit (aber ohne
 Kundenfenster) ist [crew-pairing-demo](https://github.com/sebastian-hanisch/crew-pairing-demo).
@@ -18,7 +18,7 @@ Was ändert ein Zeitfenster [e, l] an jedem Kunden, und **wie stark steuert sein
 Ein Zeitfenster macht aus der Zeitgrenze eine Zeit, die bei jedem Kunden zwischen Fensterbeginn und Fensterende liegen muss: Wer zu früh kommt, wartet (ohne Kosten) bis zum Fensterbeginn,
 wer zu spät kommt, scheidet aus. **Je breiter die Fenster, desto mehr Labels (in den gemessenen Reihen):** In diesen Reihen wächst die Zahl mit jeder Stufe. In einem Pricing-Aufruf (30 Kunden, ng-Gedächtnis 5, Dualpreise der ersten Runde, 12 Instanzen je Zelle) wächst der
 Median der erzeugten Labels von Breite 20 auf Breite 200 bei zufällig verteilten Kunden von 1.413 auf 42.510 (Faktor 30,1) und bei gruppierten Kunden von 2.870 auf 68.216 (Faktor 23,8), also um das
-24- bis 30-Fache. In der ganzen Spaltenerzeugung (30 zufällige Kunden, 6 Instanzen je Zelle) wächst der Median der Labels von Breite 40 auf Breite 200 bei k = 1 um das 9,5-Fache (16.938 auf 160.456)
+24- bis 30-Fache. In der ganzen Spaltengenerierung (30 zufällige Kunden, 6 Instanzen je Zelle) wächst der Median der Labels von Breite 40 auf Breite 200 bei k = 1 um das 9,5-Fache (16.938 auf 160.456)
 und bei k = 5 um das 16,7-Fache (20.904 auf 348.904).
 
 Alle Zahlen gelten für **eigene Solomon-artige Instanzen** (Quadrat 100 × 100, Zeit = Entfernung, Bedienzeit 10, Horizont 300, Kapazität 70; Fenster der Breite w um einen zufälligen Mittelpunkt,
@@ -42,7 +42,7 @@ auf die zulässige Zeitspanne beschnitten), nicht für die Originalinstanzen. Ge
 2. **Breite gegen Nutzen (Handbeispiel):** bester Wert, Labels und zulässige Routen bei allen fünf Breiten nebeneinander.
 3. **Größenregler:** ein Pricing-Aufruf auf einer Solomon-artigen Instanz (10 bis 30 Kunden, Breite 20 bis 150, zufällig oder gruppiert, k = 1 oder 5) mit Karte, Fensterplan, Anteil dominierter und wartender Labels.
    Die Rechnung läuft live und ist auf 600.000 erzeugte Labels begrenzt (die App meldet einen Abbruch).
-4. **Feste Messreihen:** die Tabellen unten (ein Pricing-Aufruf; ganze Spaltenerzeugung), jede Zeile mit Quelle in `data/`.
+4. **Feste Messreihen:** die Tabellen unten (ein Pricing-Aufruf; ganze Spaltengenerierung), jede Zeile mit Quelle in `data/`.
 5. **Warten:** Anteil wartender Labels, Wartezeit und Fenster-Aus gegen die Breite; im Handbeispiel die Dominanzen bei gleicher Zeit nach dem Warten.
 
 ## Befunde (gemessen, keine Behauptungen)
@@ -81,7 +81,7 @@ Die Mediane beider Tabellen sind auf ganze Zahlen gerundet; wo der Median das Mi
   von Breite zu Breite. Weniger als 10 % der Labels warten bei zufällig verteilten Kunden ab Breite 150 (7,5 %), bei gruppierten ab Breite 200 (9,2 %).
 - **Einzelne Instanzen weichen stark ab:** bei gruppierten Kunden und Breite 100 liegt das Maximum (61.378) beim 3,0-Fachen des Medians (20.414).
 
-**Ganze Spaltenerzeugung** (30 zufällige Kunden, 6 Instanzen je Zelle mit den Zufalls-Seeds 0 bis 5, Summe aller Pricing-Aufrufe bis zur Konvergenz, Überdeckungs-Master; k = ng-Gedächtnis; Median und Mittel nur über die fertigen Läufe):
+**Ganze Spaltengenerierung** (30 zufällige Kunden, 6 Instanzen je Zelle mit den Zufalls-Seeds 0 bis 5, Summe aller Pricing-Aufrufe bis zur Konvergenz, Überdeckungs-Master; k = ng-Gedächtnis; Median und Mittel nur über die fertigen Läufe):
 
 | Breite | k | Läufe | abgebrochen | Median der Labels (fertige Läufe) | dominiert, Mittel (%) |
 |---|---|---|---|---|---|
@@ -134,8 +134,8 @@ am Fensterende verworfenen Verlängerungen; die Zahl der zulässigen Routen lief
 | „steigt“ und „fällt“ von Breite zu Breite (Median, dominiert, wartet, Wartezeit, Fenster-Aus) | `test_every_trend_sentence_of_the_readme_holds_in_all_five_steps` (je Typ alle 5 Stufen) | Messreihe |
 | gruppiert über zufällig bei jeder Breite; 61.378 gegen 20.414 (3,0-fach) | `test_clustered_median_is_larger_than_random_at_every_width_and_maximum_to_median` | Messreihe |
 | Warten unter 10 % ab Breite 150 (7,5 %) bzw. 200 (9,2 %) | `test_waiting_becomes_rare_from_these_widths_on` | Messreihe |
-| Tabelle „Ganze Spaltenerzeugung“, 9,5-Fache und 16,7-Fache, 3 von 6 und 6 von 6 abgebrochen | `test_readme_has_the_v1_table_verbatim`, `test_v1_numbers_of_the_readme_equal_the_aggregate_of_the_raw_rows` (Median je Zelle gegen die Zusammenfassung der Vormessung) | Messreihe |
-| Stichprobe der Spaltenerzeugung (6 Zeilen) | `test_v1_sample_is_reproduced_as_a_band`: Schranke auf 4 Stellen, Iterationen, Spalten und Labels im Band ±25 % | Band |
+| Tabelle „Ganze Spaltengenerierung“, 9,5-Fache und 16,7-Fache, 3 von 6 und 6 von 6 abgebrochen | `test_readme_has_the_v1_table_verbatim`, `test_v1_numbers_of_the_readme_equal_the_aggregate_of_the_raw_rows` (Median je Zelle gegen die Zusammenfassung der Vormessung) | Messreihe |
+| Stichprobe der Spaltengenerierung (6 Zeilen) | `test_v1_sample_is_reproduced_as_a_band`: Schranke auf 4 Stellen, Iterationen, Spalten und Labels im Band ±25 % | Band |
 | Handbeispiel: Tabelle, 15 / 27 / 67 / 159 / 272, −12 bis −28, 16 bis 686 Routen | `test_readme_has_the_hand_table_verbatim`, `test_hand_example_numbers_of_the_readme`, `tests/test_algorithm.py::test_hand_values_per_width` (Handwerte aus dem unabhängigen Handrechen-Skript) | exakt |
 | 3 von 6 Dominanzen bei gleicher Zeit, L1 wartet 22, Ankunft 32 > 17 | `test_three_of_six_dominations_at_width_6_have_the_same_time_because_both_labels_wait`, `test_first_label_waits_22_and_the_extension_to_customer_2_fails`, `tests/test_algorithm.py` (Rechnung von Hand) | exakt |
 | Annahmen, Grenzen und bekannte Probleme (App und README gleich) | `test_readme_has_the_assumptions_text_of_the_app_verbatim` | Text |
@@ -150,13 +150,13 @@ am Fensterende verworfenen Verlängerungen; die Zahl der zulässigen Routen lief
 - Warten bis zum Fensterbeginn ist erlaubt und kostet nichts. Genau deshalb darf ein Label, das früher ankommt, ein späteres mit höchstens gleichen Kosten dominieren.
 - Kosten und Fahrzeit sind die Entfernung (Quadrat 100 × 100, euklidisch; im Handbeispiel Manhattan-Abstand auf einem Gitter). Bedienzeit 10 (Handbeispiel 2), Horizont 300 (Handbeispiel 36), Kapazität 70 (Handbeispiel 99, wirkt dort nicht).
 - Das Fenster der Breite w liegt um einen zufälligen Mittelpunkt, beschnitten auf die zulässige Zeitspanne zwischen Entfernung zum Depot und Horizont minus Bedienzeit minus Entfernung.
-- Die Dualpreise sind die der ersten Runde (je Kunde das Doppelte der Entfernung zum Depot); der Größenregler rechnet einen Pricing-Aufruf, nicht die ganze Spaltenerzeugung.
+- Die Dualpreise sind die der ersten Runde (je Kunde das Doppelte der Entfernung zum Depot); der Größenregler rechnet einen Pricing-Aufruf, nicht die ganze Spaltengenerierung.
 
 **Grenzen**
-- Die Instanzen sind selbst erzeugt und Solomon-artig, nicht die Originalinstanzen. Die Messreihen haben 30 Kunden: 12 Instanzen je Zelle bei einem Pricing-Aufruf, 6 Instanzen je Zelle bei der ganzen Spaltenerzeugung.
+- Die Instanzen sind selbst erzeugt und Solomon-artig, nicht die Originalinstanzen. Die Messreihen haben 30 Kunden: 12 Instanzen je Zelle bei einem Pricing-Aufruf, 6 Instanzen je Zelle bei der ganzen Spaltengenerierung.
 - Nicht gemessen sind Wartekosten größer null, Fenster um die Ankunftszeiten eines Bezugsplans (so legt die Tourenbildung sie), die Rechenzeit statt der Label-Zahl und mehr als 30 Kunden mit der Fensterbreite als Variable.
 - Der Größenregler rechnet live bis Breite 150; Breite 200 gibt es nur als feste Messreihe.
-- Elementare Rechnung (jeder Kunde höchstens einmal) wurde in der ganzen Spaltenerzeugung bei Breite 100 in 3 von 6 und bei Breite 200 in 6 von 6 Läufen abgebrochen; diese Zellen zeigen nur die fertigen Läufe.
+- Elementare Rechnung (jeder Kunde höchstens einmal) wurde in der ganzen Spaltengenerierung bei Breite 100 in 3 von 6 und bei Breite 200 in 6 von 6 Läufen abgebrochen; diese Zellen zeigen nur die fertigen Läufe.
 
 **Bekannte Probleme und Unsicherheiten**
 - Die Label-Zahl wächst nicht allgemein mit der Breite: Ein zusätzliches Label kann andere dominieren. Sie wird gezählt und nicht vorausgesagt; die Zeile „wächst“ gilt für die gemessenen Reihen.
@@ -238,7 +238,7 @@ pip install -r requirements-dev.txt
 pytest tests/ -v
 ```
 
-Gebaut mit Streamlit und Plotly; die Tests nutzen zusätzlich NumPy und SciPy für die Stichprobe der Spaltenerzeugung.
+Gebaut mit Streamlit und Plotly; die Tests nutzen zusätzlich NumPy und SciPy für die Stichprobe der Spaltengenerierung.
 
 ---
 

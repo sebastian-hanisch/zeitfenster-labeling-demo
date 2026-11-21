@@ -318,7 +318,7 @@ def hand_table_markdown() -> str:
 
 
 def v1_table_markdown() -> str:
-    """Ganze Spaltenerzeugung (V1) als Markdown-Tabelle: Median der Labels der fertigen Läufe je Breite und ng-Gedächtnis."""
+    """Ganze Spaltengenerierung (V1) als Markdown-Tabelle: Median der Labels der fertigen Läufe je Breite und ng-Gedächtnis."""
     lines = ["| Breite | k | Läufe | abgebrochen | Median der Labels (fertige Läufe) | dominiert, Mittel (%) |", "|---|---|---|---|---|---|"]
     for r in v1_table():
         k = "elementar" if r["k"] == C.BAND_N else str(r["k"])

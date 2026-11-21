@@ -61,7 +61,7 @@ def make_instance(n: int, seed: int, width: float, clustered: bool = False, H: f
 
 
 def first_round_duals(inst: Inst) -> list:
-    """Dualpreise der ersten Spaltenerzeugungs-Runde: je Kunde das Doppelte der Entfernung zum Depot (so viel spart eine Einzelroute, die man ersetzt)."""
+    """Dualpreise der ersten Spaltengenerierungs-Runde: je Kunde das Doppelte der Entfernung zum Depot (so viel spart eine Einzelroute, die man ersetzt)."""
     return [0.0] + [2 * inst.d[0][i] for i in range(1, inst.n + 1)]
 
 

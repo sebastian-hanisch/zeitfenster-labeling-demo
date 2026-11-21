@@ -4,7 +4,7 @@ Aufruf (im Demo-Ordner):  python tools/bands_aus_vormessung.py <Ordner der Vorme
 
 Liest
   run_p03.log        ein Pricing-Aufruf, n = 30, ng-Gedächtnis k = 5, 12 Instanzen je Zelle, Breiten 20 bis 200, zufällige und gruppierte Kunden
-  out_v1_n30.txt     ganze Spaltenerzeugung, n = 30, Breiten 40 / 100 / 200, 6 Instanzen je Zelle, ng-Gedächtnis k = 1, 3, 5, 8, 12 und elementar (k = 30)
+  out_v1_n30.txt     ganze Spaltengenerierung, n = 30, Breiten 40 / 100 / 200, 6 Instanzen je Zelle, ng-Gedächtnis k = 1, 3, 5, 8, 12 und elementar (k = 30)
 und schreibt data/band_p03.json und data/band_v1.json. Jede Zeile trägt ihre Quelle (Datei und Zeilennummer). Es wird nichts gerundet oder umgerechnet:
 die Zahlen stehen so da, wie die Rohausgabe sie nennt.
 """
@@ -61,7 +61,7 @@ def parse_v1(path: Path) -> dict:
         "quelle": f"vormessung/{path.name} (erzeugt von v1_messreihe.py)",
         "bedingungen": {
             "kunden": 30, "kapazitaet": 70, "horizont": 300, "bedienzeit": 10, "instanzen_je_zelle": 6, "zufalls_seeds": "0 bis 5",
-            "messgroesse": "Summe der erzeugten Labels über alle Pricing-Aufrufe der Spaltenerzeugung bis zur Konvergenz",
+            "messgroesse": "Summe der erzeugten Labels über alle Pricing-Aufrufe der Spaltengenerierung bis zur Konvergenz",
             "k_30": "elementar (jeder Kunde höchstens einmal); abgebrochen = Rechnung nach der Zeitgrenze der Vormessung beendet",
             "sekunden": "nur zur Information, Rechner der Vormessung",
         },

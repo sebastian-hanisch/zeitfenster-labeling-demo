@@ -28,13 +28,13 @@ ASSUMPTIONS_MARKDOWN = """
 - Warten bis zum Fensterbeginn ist erlaubt und kostet nichts. Genau deshalb darf ein Label, das früher ankommt, ein späteres mit höchstens gleichen Kosten dominieren.
 - Kosten und Fahrzeit sind die Entfernung (Quadrat 100 × 100, euklidisch; im Handbeispiel Manhattan-Abstand auf einem Gitter). Bedienzeit 10 (Handbeispiel 2), Horizont 300 (Handbeispiel 36), Kapazität 70 (Handbeispiel 99, wirkt dort nicht).
 - Das Fenster der Breite w liegt um einen zufälligen Mittelpunkt, beschnitten auf die zulässige Zeitspanne zwischen Entfernung zum Depot und Horizont minus Bedienzeit minus Entfernung.
-- Die Dualpreise sind die der ersten Runde (je Kunde das Doppelte der Entfernung zum Depot); der Größenregler rechnet einen Pricing-Aufruf, nicht die ganze Spaltenerzeugung.
+- Die Dualpreise sind die der ersten Runde (je Kunde das Doppelte der Entfernung zum Depot); der Größenregler rechnet einen Pricing-Aufruf, nicht die ganze Spaltengenerierung.
 
 **Grenzen**
-- Die Instanzen sind selbst erzeugt und Solomon-artig, nicht die Originalinstanzen. Die Messreihen haben 30 Kunden: 12 Instanzen je Zelle bei einem Pricing-Aufruf, 6 Instanzen je Zelle bei der ganzen Spaltenerzeugung.
+- Die Instanzen sind selbst erzeugt und Solomon-artig, nicht die Originalinstanzen. Die Messreihen haben 30 Kunden: 12 Instanzen je Zelle bei einem Pricing-Aufruf, 6 Instanzen je Zelle bei der ganzen Spaltengenerierung.
 - Nicht gemessen sind Wartekosten größer null, Fenster um die Ankunftszeiten eines Bezugsplans (so legt die Tourenbildung sie), die Rechenzeit statt der Label-Zahl und mehr als 30 Kunden mit der Fensterbreite als Variable.
 - Der Größenregler rechnet live bis Breite 150; Breite 200 gibt es nur als feste Messreihe.
-- Elementare Rechnung (jeder Kunde höchstens einmal) wurde in der ganzen Spaltenerzeugung bei Breite 100 in 3 von 6 und bei Breite 200 in 6 von 6 Läufen abgebrochen; diese Zellen zeigen nur die fertigen Läufe.
+- Elementare Rechnung (jeder Kunde höchstens einmal) wurde in der ganzen Spaltengenerierung bei Breite 100 in 3 von 6 und bei Breite 200 in 6 von 6 Läufen abgebrochen; diese Zellen zeigen nur die fertigen Läufe.
 
 **Bekannte Probleme und Unsicherheiten**
 - Die Label-Zahl wächst nicht allgemein mit der Breite: Ein zusätzliches Label kann andere dominieren. Sie wird gezählt und nicht vorausgesagt; die Zeile „wächst“ gilt für die gemessenen Reihen.

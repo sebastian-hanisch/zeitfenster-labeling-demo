@@ -4,7 +4,7 @@ Wie jede Zahl geprüft ist, steht in der Tabelle „Zahl → Test“ der README.
 * exakt: Zählungen (ganze Zahlen) des Kerns an festen Zufalls-Seeds, hier neu gerechnet;
 * Messreihe: Zahlen aus data/band_p03.json und data/band_v1.json. Die Tabellen der README werden wortgleich aus diesen Dateien erzeugt und hier gesucht; die Dateien stammen aus den
   Rohausgaben der Vormessung (jede Zeile mit Quelle). Ein Teil der Zeilen wird hier neu gerechnet (Stichprobe), der Rest steht nur in der Datei;
-* Band: die Spaltenerzeugung hängt von den Dualpreisen des LP-Lösers ab, die Label-Zahl wird deshalb nur in einem Band nachgerechnet, die Schranke (der LP-Wert) genau.
+* Band: die Spaltengenerierung hängt von den Dualpreisen des LP-Lösers ab, die Label-Zahl wird deshalb nur in einem Band nachgerechnet, die Schranke (der LP-Wert) genau.
 Zeiten werden nicht festgeschrieben."""
 
 import importlib.util
@@ -148,7 +148,7 @@ def test_waiting_becomes_rare_from_these_widths_on():
     assert "ab Breite 150 (7,5 %)" in README and "ab Breite 200 (9,2 %)" in README
 
 
-# --- Ganze Spaltenerzeugung (V1) -------------------------------------------------------------------------------------------------------------
+# --- Ganze Spaltengenerierung (V1) -------------------------------------------------------------------------------------------------------------
 
 def test_v1_numbers_of_the_readme_equal_the_aggregate_of_the_raw_rows():
     """Median der Labels der fertigen Läufe (6 Instanzen je Zelle), wie ihn die Auswertung der Vormessung ausweist (zweite, unabhängig geführte Zusammenfassung)."""
@@ -166,7 +166,7 @@ def test_v1_numbers_of_the_readme_equal_the_aggregate_of_the_raw_rows():
 
 
 def _colgen(inst, k):
-    """Spaltenerzeugung wie in der Vormessung (Überdeckungs-Master, Startspalten = Einzelrouten, je Runde bis zu 15 neue Spalten); nur für diese Stichprobe."""
+    """Spaltengenerierung wie in der Vormessung (Überdeckungs-Master, Startspalten = Einzelrouten, je Runde bis zu 15 neue Spalten); nur für diese Stichprobe."""
     np = pytest.importorskip("numpy")
     linprog = pytest.importorskip("scipy.optimize").linprog
     n = inst.n
@@ -198,7 +198,7 @@ def _colgen(inst, k):
 
 @pytest.mark.parametrize("width,seed,k", [(40, 0, 1), (40, 0, 5), (40, 1, 1), (40, 2, 3), (100, 0, 1), (100, 0, 5)])
 def test_v1_sample_is_reproduced_as_a_band(width, seed, k):
-    """Stichprobe der ganzen Spaltenerzeugung: die Schranke (LP-Wert) genau auf 4 Stellen, Iterationen, Spalten und Labels in einem Band von ±25 %, weil die Dualpreise eines
+    """Stichprobe der ganzen Spaltengenerierung: die Schranke (LP-Wert) genau auf 4 Stellen, Iterationen, Spalten und Labels in einem Band von ±25 %, weil die Dualpreise eines
     entarteten LPs vom Löser und seiner Version abhängen können."""
     ref = next(r for r in ev.load_band_v1()["zeilen"] if (r["breite"], r["seed"], r["k"]) == (width, seed, k))
     bound, iterations, columns, labels = _colgen(S.make_instance(30, seed, width), k)

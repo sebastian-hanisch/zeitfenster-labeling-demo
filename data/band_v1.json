@@ -7,7 +7,7 @@
   "bedienzeit": 10,
   "instanzen_je_zelle": 6,
   "zufalls_seeds": "0 bis 5",
-  "messgroesse": "Summe der erzeugten Labels über alle Pricing-Aufrufe der Spaltenerzeugung bis zur Konvergenz",
+  "messgroesse": "Summe der erzeugten Labels über alle Pricing-Aufrufe der Spaltengenerierung bis zur Konvergenz",
   "k_30": "elementar (jeder Kunde höchstens einmal); abgebrochen = Rechnung nach der Zeitgrenze der Vormessung beendet",
   "sekunden": "nur zur Information, Rechner der Vormessung"
  },

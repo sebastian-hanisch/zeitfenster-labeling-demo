@@ -215,7 +215,7 @@ kind, text = ev.verdict_band(band)
 getattr(st, kind)(text)
 st.caption("Die Mediane sind auf ganze Zahlen gerundet; wo der Median das Mittel zweier Werte ist, weicht die Zahl um 0,5 ab.")
 
-st.markdown("**Die ganze Spaltenerzeugung** (Summe aller Pricing-Aufrufe bis zur Konvergenz, 6 Instanzen je Zelle mit den Zufalls-Seeds 0 bis 5, zufällige Kunden; k = 30 heißt elementar)")
+st.markdown("**Die ganze Spaltengenerierung** (Summe aller Pricing-Aufrufe bis zur Konvergenz, 6 Instanzen je Zelle mit den Zufalls-Seeds 0 bis 5, zufällige Kunden; k = 30 heißt elementar)")
 v1 = ev.v1_table()
 st.plotly_chart(build_v1(v1), width="stretch", key="v1_chart")
 st.dataframe(
@@ -226,7 +226,7 @@ st.dataframe(
     hide_index=True, width="stretch",
 )
 k1 = [ev.v1_median(w, 1) for w in C.V1_WIDTHS]
-st.info(f"Im Median wachsen die Labels der ganzen Spaltenerzeugung bei k = 1 von Breite {C.V1_WIDTHS[0]} auf Breite {C.V1_WIDTHS[-1]} auf das {ev.de(k1[-1] / k1[0])}-Fache "
+st.info(f"Im Median wachsen die Labels der ganzen Spaltengenerierung bei k = 1 von Breite {C.V1_WIDTHS[0]} auf Breite {C.V1_WIDTHS[-1]} auf das {ev.de(k1[-1] / k1[0])}-Fache "
         f"({ev.de_int(k1[0])} auf {ev.de_int(k1[-1])}), bei k = 5 auf das {ev.de(ev.v1_median(200, 5) / ev.v1_median(40, 5))}-Fache. "
         f"Die elementare Rechnung wurde bei Breite 100 in {next(r['abgebrochen'] for r in v1 if r['breite'] == 100 and r['k'] == C.BAND_N)} von 6 und bei Breite 200 in "
         f"{next(r['abgebrochen'] for r in v1 if r['breite'] == 200 and r['k'] == C.BAND_N)} von 6 Läufen abgebrochen; diese Zellen zeigen nur die fertigen, schnelleren Läufe (die Zeile Breite 100, elementar beruht auf 3 Läufen).")
@@ -268,7 +268,7 @@ st.markdown(
 |---|---|---|
 | **Warten kostet nichts** | Die Dominanzregel „höchstens so spät“ gilt dann nicht mehr: Ein früheres Label könnte teurer sein als ein späteres. | nein, nicht gebaut |
 | **Fenster um zufällige Mittelpunkte** | Legt man die Fenster um die Ankunftszeiten eines Bezugsplans (so macht es die Tourenbildung), steht die Fensterbreite in anderem Zusammenhang zur Entfernung; ob die Label-Zahl dann ebenso wächst, zeigt diese Demo nicht. | nein |
-| **Ein Pricing-Aufruf mit den Dualpreisen der ersten Runde** | In späteren Runden ändern sich die Dualpreise und damit die Zahl der Labels; die ganze Spaltenerzeugung steht nur als feste Messreihe (Experiment 4). | teilweise (6 Instanzen je Zelle) |
+| **Ein Pricing-Aufruf mit den Dualpreisen der ersten Runde** | In späteren Runden ändern sich die Dualpreise und damit die Zahl der Labels; die ganze Spaltengenerierung steht nur als feste Messreihe (Experiment 4). | teilweise (6 Instanzen je Zelle) |
 | **30 Kunden, eigene Instanzen** | Mit mehr Kunden oder anderen Instanzen können die Zahlen abweichen. | nein |
 | **Kapazität 70 aktiv** | Die Kapazität begrenzt die Routenlänge in den Messreihen mit; ihr Anteil an der Label-Zahl gegenüber den Fenstern ist nicht getrennt gemessen. | nein |
 """
